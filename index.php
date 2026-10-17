@@ -1,3 +1,11 @@
+<?php
+// ==========================================
+// CONFIGURATION (Apni ekhane change korte paren)
+// ==========================================
+$db_url      = 'https://sakil-paid-hack-sell-1342007-default-rtdb.firebaseio.com/';
+$admin_user  = 'Sakil';
+$admin_pass  = '1342007';
+?>
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
@@ -207,9 +215,11 @@ input:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0 1px var(--re
 <div id="toasts"></div>
 
 <script>
-/* ===== FIREBASE CONFIG & REST API ===== */
-var DB='https://sakil-paid-hack-sell-1342007-default-rtdb.firebaseio.com/';
-var ADMIN_USER='Sakil',ADMIN_PASS='1342007';
+/* ===== FIREBASE CONFIG & PHP INJECTION VARIABLES ===== */
+var DB = "<?php echo $db_url; ?>";
+var ADMIN_USER = "<?php echo $admin_user; ?>";
+var ADMIN_PASS = "<?php echo $admin_pass; ?>";
+
 function db(p,m,b){var o={method:m||'GET',cache:'no-store'};if(b!==undefined){o.headers={'Content-Type':'application/json'};o.body=JSON.stringify(b)}
  return fetch(DB+'/'+p+'.json',o).then(function(r){return r.json().catch(function(){return null}).then(function(j){if(!r.ok)throw new Error((j&&j.error)||r.status);return j})})}
 var $=function(i){return document.getElementById(i)};
